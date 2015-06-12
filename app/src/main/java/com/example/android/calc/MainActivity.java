@@ -13,50 +13,44 @@ public class MainActivity extends Activity {
     Character op = 'q';
     Double num, numtemp;
     EditText showResult;
-
+    boolean deci = false;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         showResult = (EditText) findViewById(R.id.et);
-
-
     }
 
     public void btnDotClicked(View v) {
-        insert("0.");
-
+        if(deci == false){
+            insert(".");
+            deci = true;
+        }
     }
 
     public void btn0Clicked(View v) {
         insert("0");
-
     }
 
     public void btn1Clicked(View v) {
         insert("1");
-
     }
 
     public void btn2Clicked(View v) {
         insert("2");
-
     }
 
     public void btn3Clicked(View v) {
         insert("3");
-
     }
 
     public void btn4Clicked(View v) {
         insert("4");
-
     }
 
     public void btn5Clicked(View v) {
         insert("5");
-
     }
 
     public void btn6Clicked(View v) {
@@ -116,15 +110,28 @@ public class MainActivity extends Activity {
         num = 0.0;
         numtemp = 0.0;
         showResult.setText("");
+        deci = false;
     }
 
     private void insert(String j) {
         // TODO Auto-generated method stub
-        str = str + j;
+        if(j == "."){
+            if(str == ""){
+                str = str + "0.";
+            }
+            else{
+                str = str + ".";
+            }
+        }
+        else{
+            if(str == "0"){
+                str = j;
+            }
+            else
+            str = str + j;
+        }
         num = Double.valueOf(str).doubleValue();
         showResult.setText(str);
-
-
     }
 
     private void perform() {
@@ -143,6 +150,6 @@ public class MainActivity extends Activity {
             num = numtemp / num;
         else if (op == '*')
             num = numtemp * num;
-        showResult.setText("" + num);
+        showResult.setText("" + num.floatValue());
     }
 }

@@ -10,7 +10,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="horizontal"
-        android:padding="24dp">
+        android:padding="16dp">
         <Button
             android:id="@+id/button_clear"
             android:text="CE"
@@ -30,8 +30,8 @@
             android:layout_width="0dp"
             android:layout_weight="5"
             android:layout_height="match_parent"
-            android:textSize="40sp"
-            android:textColor="@android:color/darker_gray"
+            android:textSize="56sp"
+            android:textColor="@android:color/holo_orange_dark"
             android:fontFamily="sans-serif-light"/>
     </LinearLayout>
     <LinearLayout
